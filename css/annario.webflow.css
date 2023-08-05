@@ -7333,7 +7333,7 @@ img {
 
 @media screen and (max-width: 479px) {
   img {
-    margin-left: 48px;
+    margin-left: 0px;
     padding-left: 0px;
   }
 
