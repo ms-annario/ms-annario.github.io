@@ -19,21 +19,29 @@ data-wf-page="626ab828dd17c45ca8ecb440"
 <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
 <link href="images/webclip.png" rel="apple-touch-icon" />
 <script language="JavaScript">
-  var password;
-  var pass1 = "makeuserhappy"; //I know, this is bad but I am a designer, I know what are you thinking hehe. 
+  // var password;
+  // var pass1 = "makeuserhappy"; //I know, this is bad but I am a designer, I know what are you thinking hehe. 
 
   
-  password = prompt(
-    "The password is - what Unna loves to do!",
-    ""
-  );
+  // password = prompt(
+  //   "The password is - what Unna loves to do!",
+  //   ""
+  // );
 
-  if (password == pass1)
-    alert("Correct! let see how Unna makes users happy!");
-  else {
-    window.location = "design.html";
+  // if (password == pass1)
+  //   alert("Correct! let see how Unna makes users happy!");
+  // else {
+  //   window.location = "design.html";
+  // }
+  window.onload = function() {
+    function checkAndRedirect() {
+      const isAuth = localStorage.getItem("isAuth");
+      if (!isAuth) {
+        window.location.href = '401.html';
+      }
+    }
+    checkAndRedirect();
   }
-  
   
 </script>
 </head>

@@ -41,6 +41,32 @@
             (o.DocumentTouch && c instanceof DocumentTouch)) &&
             (n.className += t + "touch");
       })(window, document);
+
+      window.onload = function () {
+        function redirectToDesignPage() {
+          window.location.href = "/design.html";
+        }
+        function checkAndRedirect() {
+          const isAuth = localStorage.getItem("isAuth");
+          if (isAuth) {
+            redirectToDesignPage();
+          }
+        }
+        checkAndRedirect();
+        const form = document.getElementById("email-form");
+        form.onsubmit = function () {
+          event.preventDefault();
+          const passwordInput = document.getElementById("pass");
+          const password = passwordInput.value;
+          if (password === "makeuserhappy") {
+            localStorage.setItem("isAuth", true);
+            redirectToDesignPage();
+          } else {
+            errorMessage = document.querySelector(".w-form-fail");
+            errorMessage.style.display = "block";
+          }
+        };
+      };
     </script>
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="images/webclip.png" rel="apple-touch-icon" />
@@ -89,7 +115,6 @@
     <div class="utility-page-wrap">
       <div class="utility-page-content w-password-page w-form">
         <form
-          action="/.wf_auth"
           method="post"
           id="email-form"
           name="email-form"
@@ -117,6 +142,7 @@
             placeholder="Enter your password!"
             id="pass"
           /><input
+            id="submit-button"
             type="submit"
             value="Submit"
             data-wait="Please wait..."
