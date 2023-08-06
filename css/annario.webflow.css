@@ -8659,6 +8659,8 @@ img {
   .image-146 {
     margin-right: 0px;
     margin-left: 0px;
+    margin-top: 124px;
+    width: 124px;
   }
 
   .container-126 {
@@ -8675,5 +8677,11 @@ img {
 
   .paragraph-19 {
     font-size: 14px;
+  }
+
+  .heading-19 {
+    font-size: 24px;
+    margin-bottom: 0px;
+    margin-top: 16px;
   }
 }
